@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fridah Mbithe Taabu — Product & Project Delivery Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10151c;
+    --ink-2:#171f29;
+    --ink-3:#1f2833;
+    --paper:#f6f2e9;
+    --paper-2:#efe8d9;
+    --gold:#e3a343;
+    --gold-deep:#c8862b;
+    --teal:#3fa396;
+    --coral:#c85c46;
+    --text-light:#ede9e1;
+    --text-muted:#93a0ad;
+    --text-ink:#1c2128;
+    --text-ink-muted:#5b6672;
+    --line-light:rgba(237,233,225,0.14);
+    --line-dark:rgba(28,33,40,0.14);
+    --radius-sm: 3px;
+    --radius-md: 6px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text-light);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+  @media (max-width:720px){
+    .wrap{padding:0 22px;}
+  }
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(16,21,28,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-light);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto; padding:16px 40px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  @media (max-width:720px){ .nav-inner{padding:14px 22px;} }
+  .nav-mark{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.05rem;
+    display:flex; align-items:center; gap:10px;
+  }
+  .nav-mark .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;}
+  nav.nav-links{display:flex; gap:28px;}
+  nav.nav-links a{
+    font-size:0.86rem; color:var(--text-muted); text-decoration:none;
+    transition:color .2s ease;
+  }
+  nav.nav-links a:hover, nav.nav-links a.active{color:var(--text-light);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--text-light); cursor:pointer;}
+  @media (max-width:720px){
+    nav.nav-links{
+      position:absolute; top:100%; left:0; right:0;
+      background:var(--ink-2); flex-direction:column; gap:0;
+      max-height:0; overflow:hidden; transition:max-height .3s ease;
+      border-bottom:1px solid var(--line-light);
+    }
+    nav.nav-links.open{max-height:320px;}
+    nav.nav-links a{padding:14px 22px; border-top:1px solid var(--line-light);}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:168px 0 84px;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 78% -10%, rgba(227,163,67,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 5% 30%, rgba(63,163,150,0.10), transparent 60%);
+  }
+  .hero-eyebrow{
+    color:var(--teal); font-size:0.82rem; font-weight:600;
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .hero-eyebrow .line{width:34px; height:1px; background:var(--teal); display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.4rem, 5.4vw, 4.2rem);
+    line-height:1.04;
+    max-width:15ch;
+    color:var(--text-light);
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--gold); font-weight:500;
+  }
+  .hero-sub{
+    max-width:52ch; margin-top:26px; font-size:1.06rem;
+    color:var(--text-muted); line-height:1.7;
+  }
+  .hero-actions{
+    display:flex; gap:14px; margin-top:38px; flex-wrap:wrap;
+  }
+  .btn{
+    padding:13px 24px; border-radius:var(--radius-sm);
+    font-size:0.9rem; font-weight:600; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--gold); color:#1c1305;}
+  .btn-primary:hover{background:#eeb35f;}
+  .btn-ghost{border-color:var(--line-light); color:var(--text-light);}
+  .btn-ghost:hover{border-color:var(--text-muted);}
+
+  /* stat strip */
+  .stat-strip{
+    margin-top:70px; border-top:1px solid var(--line-light);
+    padding-top:34px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:28px;
+  }
+  @media (max-width:820px){ .stat-strip{grid-template-columns:repeat(2,1fr);} }
+  .stat{border-left:2px solid var(--gold); padding-left:16px;}
+  .stat .num{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:2.05rem; color:var(--text-light); line-height:1;
+  }
+  .stat .label{
+    margin-top:8px; font-size:0.82rem; color:var(--text-muted); max-width:20ch;
+  }
+
+  /* ---------- SECTION HELPERS ---------- */
+  section{padding:96px 0;}
+  @media (max-width:720px){ section{padding:64px 0;} }
+  .section-dark{background:var(--ink);}
+  .section-paper{background:var(--paper); color:var(--text-ink);}
+  .section-paper .text-muted{color:var(--text-ink-muted);}
+
+  .kicker{
+    font-size:0.82rem; font-weight:600; color:var(--teal);
+    display:flex; align-items:center; gap:10px; margin-bottom:16px;
+  }
+  .section-paper .kicker{color:var(--gold-deep);}
+  .kicker .line{width:26px; height:1px; background:currentColor; display:inline-block; opacity:0.6;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:40px; margin-bottom:52px; flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.7rem); max-width:16ch;
+  }
+  .section-head .desc{max-width:38ch; font-size:0.98rem; color:var(--text-muted); line-height:1.7;}
+  .section-paper .section-head .desc{color:var(--text-ink-muted);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:start;
+  }
+  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+  .about-copy p{font-size:1.05rem; line-height:1.8; color:var(--text-ink-muted);}
+  .about-copy p + p{margin-top:18px;}
+  .route-card{
+    background:var(--ink); color:var(--text-light);
+    border-radius:var(--radius-md); padding:30px 28px;
+  }
+  .route-title{font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:22px;}
+  .route-rail{position:relative; padding-left:26px;}
+  .route-rail::before{
+    content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px;
+    background:linear-gradient(var(--gold), var(--teal));
+  }
+  .route-stop{position:relative; padding-bottom:22px;}
+  .route-stop:last-child{padding-bottom:0;}
+  .route-stop::before{
+    content:""; position:absolute; left:-26px; top:3px; width:9px; height:9px; border-radius:50%;
+    background:var(--gold); border:2px solid var(--ink);
+  }
+  .route-stop .city{font-weight:600; font-size:0.98rem;}
+  .route-stop .role{font-size:0.85rem; color:var(--text-muted); margin-top:2px;}
+
+  /* ---------- WINS / EVIDENCE GRID ---------- */
+  .wins-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:30px;
+  }
+  @media (max-width:960px){ .wins-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:640px){ .wins-grid{grid-template-columns:1fr;} }
+
+  .win-card{
+    background:var(--ink-2); border:1px solid var(--line-light);
+    border-top:2px solid var(--gold);
+    border-radius:var(--radius-md); overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+
+  .win-body{padding:28px 24px 26px; display:flex; flex-direction:column; gap:12px; flex:1;}
+  .win-tag{
+    font-size:0.72rem; font-weight:600; color:var(--teal);
+    text-transform:none;
+  }
+  .win-body h3{font-size:1.14rem; color:var(--text-light); line-height:1.3;}
+  .win-body .win-desc{font-size:0.92rem; color:var(--text-muted); line-height:1.65;}
+  .win-outcome{
+    margin-top:auto; padding-top:14px; border-top:1px solid var(--line-light);
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .win-outcome .oval{color:var(--gold); font-weight:600; font-size:0.88rem;}
+
+  /* ---------- TIMELINE (experience) ---------- */
+  .timeline{position:relative; max-width:880px;}
+  .tl-item{
+    display:grid; grid-template-columns:150px 1fr; gap:34px;
+    padding:34px 0; border-top:1px solid var(--line-dark);
+  }
+  .tl-item:first-child{border-top:1px solid var(--line-dark);}
+  @media (max-width:640px){ .tl-item{grid-template-columns:1fr; gap:10px;} }
+  .tl-date{font-size:0.86rem; font-weight:600; color:var(--gold-deep); padding-top:2px;}
+  .tl-role h3{font-size:1.2rem; color:var(--text-ink);}
+  .tl-role .tl-org{font-size:0.9rem; color:var(--text-ink-muted); margin-top:2px; margin-bottom:14px;}
+  .tl-role ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px;}
+  .tl-role li{font-size:0.94rem; color:var(--text-ink-muted); line-height:1.6;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(2, 1fr); gap:1px;
+    background:var(--line-light); border:1px solid var(--line-light); border-radius:var(--radius-md); overflow:hidden;
+  }
+  @media (max-width:720px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-panel{background:var(--ink-2); padding:32px;}
+  .skill-panel h4{font-size:0.95rem; color:var(--text-light); margin-bottom:16px;}
+  .skill-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .skill-tags span{
+    font-size:0.8rem; padding:7px 12px; border-radius:20px;
+    border:1px solid var(--line-light); color:var(--text-muted);
+  }
+
+  /* ---------- CERTS / EDU ---------- */
+  .cert-row{
+    display:flex; gap:20px; flex-wrap:wrap; margin-top:36px;
+  }
+  .cert-badge{
+    display:flex; align-items:center; gap:14px;
+    border:1px solid var(--line-dark); border-radius:var(--radius-md);
+    padding:16px 20px; background:var(--paper-2);
+  }
+  .cert-badge .ring{
+    width:38px; height:38px; border-radius:50%;
+    border:2px solid var(--gold-deep); display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-weight:700; color:var(--gold-deep); font-size:0.85rem; flex:none;
+  }
+  .cert-badge .ctxt .cname{font-weight:600; font-size:0.92rem; color:var(--text-ink);}
+  .cert-badge .ctxt .cissuer{font-size:0.8rem; color:var(--text-ink-muted);}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px;
+  }
+  @media (max-width:860px){ .contact{grid-template-columns:1fr; gap:40px;} }
+  .contact h2{font-size:clamp(1.9rem,4vw,3rem); max-width:14ch;}
+  .contact-list{margin-top:28px; display:flex; flex-direction:column; gap:14px;}
+  .contact-list a{
+    text-decoration:none; font-size:1.02rem; color:var(--text-light);
+    display:flex; align-items:center; gap:12px; padding-bottom:12px; border-bottom:1px solid var(--line-light);
+  }
+  .contact-list a .k{color:var(--text-muted); font-size:0.82rem; width:64px; flex:none;}
+  .ref-card{background:var(--ink-2); border:1px solid var(--line-light); border-radius:var(--radius-md); padding:26px;}
+  .ref-card h4{font-size:0.85rem; color:var(--text-muted); margin-bottom:18px; font-weight:600; font-family:'IBM Plex Sans',sans-serif;}
+  .ref-entry{padding:14px 0; border-top:1px solid var(--line-light);}
+  .ref-entry:first-of-type{border-top:none; padding-top:0;}
+  .ref-entry .rname{font-weight:600; font-size:0.96rem; color:var(--text-light);}
+  .ref-entry .rrole{font-size:0.82rem; color:var(--text-muted); margin-top:2px;}
+  .ref-entry .rcontact{font-size:0.8rem; color:var(--text-muted); margin-top:4px;}
+
+  footer{
+    padding:30px 0; border-top:1px solid var(--line-light);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.8rem; color:var(--text-muted); flex-wrap:wrap; gap:10px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-mark"><span class="dot"></span> Fridah Mbithe Taabu</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#wins">Wins</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow"><span class="line"></span> Product & Project Delivery — Nairobi, Kenya</div>
+    <h1>I keep complex, cross-border builds <em>on track</em> — and on record.</h1>
+    <p class="hero-sub">Product Owner and delivery coordinator running Lending, payments, and compliance work at a fintech startup — coordinating engineering, design, QA and business teams across the UK, Dubai, and Uganda, and turning ambiguous problems into shipped, measurable outcomes.</p>
+    <div class="hero-actions">
+      <a href="#wins" class="btn btn-primary">See the wins</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat"><div class="num">10+</div><div class="label">projects closed end-to-end, from scoping through client sign-off</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">time zones coordinated daily —Kenya, UK, Dubai & Uganda</div></div>
+      <div class="stat"><div class="num">15+</div><div class="label">schools reached in a national digital-learning rollout</div></div>
+      <div class="stat"><div class="num">KES 4.94M</div><div class="label">top-end scenario in an eKYC vendor cost analysis I authored</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section-paper" id="about">
+  <div class="wrap">
+    <!-- <div class="about-grid"> -->
+      <div class="about-copy">
+        <div class="kicker"><span class="line"></span> About</div>
+        <h2 style="margin-bottom:22px;">From intern to Product Owner, in under two years.</h2>
+        <p>I started as a Project Management Intern at Roamtech Solutions and now own delivery for Senti, a WhatsApp-based lending line, and co-own the roadmap for Paykit, Roamtech's payments product — running discovery, requirements, and launch across distributed engineering and business teams.</p>
+        <p>My work sits where product delivery meets compliance and data: I've taken loan servicing and credit-scoring from fully manual to fully automated, translated CBK regulatory guidance into product requirements for sanctions screening and reporting, and made the harder call when the numbers demanded it — recommending against building a loan product after field research showed weak demand and elevated default risk.</p>
+        <p>Before fintech, I supported a national digital-learning rollout with Kenya's Ministry of Education, training over 50 teachers across 15+ schools. I use AI tools daily to move faster on documentation, requirements, and prototyping — and I'm comfortable picking up new tools and ambiguity fast.</p>
+      </div>
+      <!-- <div class="route-card">
+        <div class="route-title">Team</div>
+        <div class="route-rail">
+          <div class="route-stop"><div class="city">Nairobi, Kenya</div>
+          <div class="route-stop"><div class="city">United Kingdom</div>
+          <div class="route-stop"><div class="city">Dubai, UAE</div>
+          <div class="route-stop"><div class="city">Uganda</div>
+        </div>
+      </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+
+<!-- WINS -->
+<section class="section-dark" id="wins">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker"><span class="line"></span> Selected wins</div>
+        <h2>Real builds, real outcomes.</h2>
+      </div>
+      <p class="desc">Outcomes from her work across lending, payments, and compliance delivery.</p>
+    </div>
+
+    <div class="wins-grid">
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">Lending · Senti</div>
+          <h3>Built the Senti lending line end-to-end</h3>
+          <p class="win-desc">Owns discovery through launch for a customer-facing WhatsApp loan channel with AWS OCR-verified onboarding — translating user needs into requirements and tracking delivery across distributed teams.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>Live channel, sole ownership</span></div>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">Automation · Credit</div>
+          <h3>Took loan servicing from manual to fully automated</h3>
+          <p class="win-desc">Led the Salary Advance product from a semi-manual process to a fully automated USSD flow and admin dashboard, and did the same for CRB / credit-scoring — Improvimg UX.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>Semi-manual → fully automated</span></div>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">Product · Paykit</div>
+          <h3>Led the Paykit facelift redesign</h3>
+          <p class="win-desc">Benchmarked the product experience against market and competitor standards and coordinated the redesign — recognized with a team award for the most growth and feature releases in Q2 2026.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>Q2 team award for growth</span></div>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">Payments Infrastructure</div>
+          <h3>Co-led payment channel integrations</h3>
+          <p class="win-desc">Delivered IPSL / PesaLink, M-Pesa (B2B/B2C/C2B/P2P), and Airtel Money integrations, plus bulk payment — coordinating partner sandbox-to-production access via Open API.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>Multi-channel, production-live</span></div>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">Compliance & Risk</div>
+          <h3>Automated sanctions screening and CBK reporting</h3>
+          <p class="win-desc">Led Membercheck sanctions-screening integration and automated GDI regulatory reporting for CBK — translating AML/KYC requirements directly into product specifications.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>Regulatory reporting automated</span></div>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">Data-Driven Decisions</div>
+          <h3>Ran a full eKYC vendor cost analysis</h3>
+          <p class="win-desc">Compared AWS Rekognition against other proposed alternative vendors, producing a stakeholder brief with cost scenarios from roughly KES 299K to KES 4.94M per year to support a data-backed decision.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>Brief adopted by stakeholders</span></div>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">Judgment Call</div>
+          <h3>Recommended against building — and was right to</h3>
+          <p class="win-desc">Directed field and market research on a proposed loan product. Demand data and default-rate research showed the risk outweighed the opportunity, so I recommended against the build — redirecting resources to higher-priority work.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>Avoided a wasted build cycle</span></div>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">E-Commerce · Adenzo</div>
+          <h3>Migrated Adenzo's storefront to Shopify</h3>
+          <p class="win-desc">Coordinated the redesign and migration of Adenzo's e-commerce site off a legacy platform that was causing drop-offs, with metrics and reporting built to track drop-off points.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>Revenue growth since launch</span></div>
+        </div>
+      </div>
+
+      <div class="win-card">
+        <div class="win-body">
+          <div class="win-tag">Public Sector & Continuity</div>
+          <h3>Kilifi HMIS, KEMIS, and 15+ schools reached</h3>
+          <p class="win-desc">Took over the Kilifi County HMIS build to ensure continuity, helped rebuild Kenya's NEMIS into KEMIS, built Elimutrees for green-schools tree-planting data, and trained 50+ teachers across 15+ schools.</p>
+          <div class="win-outcome"><span class="oval">Outcome</span><span>National rollout, 15+ schools</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section class="section-paper" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker"><span class="line"></span> Track record</div>
+        <h2>How I got here.</h2>
+      </div>
+      <p class="desc">Every step built toward owning delivery — not just supporting it.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">Nov 2025 — Present</div>
+        <div class="tl-role">
+          <h3>Product Owner — Payments & Lending (Paykit & Senti)</h3>
+          <div class="tl-org">Roamtech Solutions</div>
+          <ul>
+            <li>Owns Senti (lending) end-to-end and co-owns Paykit's roadmap, translating priorities into delivery plans, RAID logs, and milestones.</li>
+            <li>Coordinates engineering and business teams across the UK, Dubai, and Uganda, adjusting cadence to keep delivery moving across time zones.</li>
+            <li>Drove Jira/Linear adoption to 90% across the tech team; manages vendor relationships across IPSL, Airtel Money, TransUnion, CBK, and IPRS.</li>
+            <li>Led the Paykit mobile facelift redesign, benchmarking the product experience against market and competitor standards.</li>
+            <li>Led the Membercheck integration for sanctions screening, embedding automated checks into the onboarding and transaction flow.</li>
+            <li>Automated CBK GDI regulatory reporting to remove manual daily, monthly, quarterly, and annual submission work and free up engineering time.</li>
+            <li>Built a CRB listing service to automatically list defaulted customers with TransUnion, Metropol, and Creditinfo.</li>
+            <li>Took Salary Advance from a semi-manual process to a fully automated USSD flow and admin dashboard.</li>
+            <li>Creates process flows mapping how new features should work end-to-end, aligning engineering, business, and compliance before build starts.</li>
+            <li>Uses AI tools daily for prototyping — turning requirements into clickable flows and drafts ahead of development.</li>
+            <li>Owns roadmap planning and prioritization for Senti and Paykit, weighing business impact against engineering effort and compliance risk.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">May 2025 — Sep 2025</div>
+        <div class="tl-role">
+          <h3>Project Officer — All Products (Payments, Communication & IMT)</h3>
+          <div class="tl-org">Roamtech Solutions</div>
+          <ul>
+            <li>Owned project planning — scoping timelines, dependencies, and deliverables — ahead of transitioning into product ownership.</li>
+            <li>Ran daily standups, sprint planning, and retrospectives; tracked tickets end-to-end in Jira, resolving blockers with developers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Nov 2024 — Apr 2025</div>
+        <div class="tl-role">
+          <h3>Project Management Intern</h3>
+          <div class="tl-org">Roamtech Solutions</div>
+          <ul>
+            <li>Closed 10+ projects through structured post-milestone follow-up and extensive UAT, ensuring products met client specifications.</li>
+            <li>Led user requirement meetings with prospective clients, securing sign-off at every critical project stage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Feb 2023 — Apr 2024</div>
+        <div class="tl-role">
+          <h3>Software Developer (ICT Intern) — Digital Learning Systems</h3>
+          <div class="tl-org">Ministry of Education</div>
+          <ul>
+            <li>Acted as assistant PM, tracking deliverables against timelines during hackathon-style delivery sprints across 15+ schools.</li>
+            <li>Modernized NEMIS into KEMIS and built Elimutrees, a national tree-planting data system for schools.</li>
+            <li>Trained 50+ teachers on smart-classroom tools and Excel-based data collection, adapting for first-time, non-technical users.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-row">
+      <div class="cert-badge">
+        <div class="ring">CS</div>
+        <div class="ctxt"><div class="cname">Certified Scrum Product Owner</div><div class="cissuer">CSPO</div></div>
+      </div>
+      <div class="cert-badge">
+        <div class="ring">AWS</div>
+        <div class="ctxt"><div class="cname">AWS Certified Cloud Practitioner</div><div class="cissuer">Amazon Web Services</div></div>
+      </div>
+      <div class="cert-badge">
+        <div class="ring">BSc</div>
+        <div class="ctxt"><div class="cname">BSc Information Technology</div><div class="cissuer">Kirinyaga University</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section-dark" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker"><span class="line"></span> Capabilities</div>
+        <h2>What I bring to a delivery team.</h2>
+      </div>
+      <p class="desc">Product and project management, grounded in fintech, credit, and compliance.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-panel">
+        <h4>Credit & Lending</h4>
+        <div class="skill-tags">
+          <span>Credit-scoring (CRB) automation</span><span>Loan-servicing automation</span>
+          <span>Pre-filter scoring model design</span><span>Loan viability research</span>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h4>Payments Service Provider Product</h4>
+        <div class="skill-tags">
+          <span>M-Pesa B2B, B2C, C2B, P2P</span><span>PesaLink / IPSL reconciliation</span>
+          <span>Airtel Money B2B, B2C, C2B, P2P</span><span>Open API / sandbox-to-production</span>
+          <span>Team management</span><span>UAT testing</span>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h4>Compliance & Risk</h4>
+        <div class="skill-tags">
+          <span>Sanctions screening</span><span>CBK / GDI regulatory reporting</span>
+          <span>AML / KYC translation</span>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h4>Delivery & Program Management</h4>
+        <div class="skill-tags">
+          <span>Roadmaps & milestone planning</span><span>User stories & acceptance criteria</span>
+          <span>Agile / Scrum & Waterfall</span><span>Cross-timezone coordination</span>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h4>Data & Analytics</h4>
+        <div class="skill-tags">
+          <span>KPI / adoption metrics</span><span>Metabase reporting</span>
+          <span>Data-driven go/no-go calls</span><span>Basic SQL (developing)</span>
+        </div>
+      </div>
+      <div class="skill-panel">
+        <h4>AI-Native Workflow</h4>
+        <div class="skill-tags">
+          <span>Requirements documentation</span><span>PRD authorship</span>
+          <span>Rapid prototyping</span><span>Daily AI-assisted drafting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-dark" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <div class="kicker"><span class="line"></span> Get in touch</div>
+        <h2>Let's talk about your next build.</h2>
+        <p style="margin-top:18px; color:var(--text-muted); max-width:42ch; line-height:1.7;">Open to Product Owner, Project Manager, and delivery coordination roles — fintech, development, or public-sector digital work.</p>
+        <div class="contact-list">
+          <a href="mailto:fridahmbithe45@gmail.com"><span class="k">Email</span> fridahmbithe45@gmail.com</a>
+          <a href="tel:+254112579157"><span class="k">Phone</span> +254 112 579 157</a>
+          <a href="https://www.linkedin.com/in/fridah-mbithe" target="_blank" rel="noopener"><span class="k">LinkedIn</span> linkedin.com/in/fridah-mbithe</a>
+          <a href="#about"><span class="k">Based in</span> Nairobi, Kenya</a>
+        </div>
+      </div>
+     <div class="ref-card">
+        <h4>Referees</h4>
+        <div class="ref-entry">
+          <div class="rname">Koech Cherotich</div>
+          <div class="rrole">Senior Product Owner, Roamtech Solutions</div>
+          <div class="rcontact">+254 *** 786046 · koech***@gmail.com</div>
+        </div>
+        <div class="ref-entry">
+          <div class="rname">Andrada Zelezneac</div>
+          <div class="rrole">Head of Products, Roamtech Solutions</div>
+          <div class="rcontact">+34 642 ** *5 04 · Andrada***@gmail.com</div>
+          <p style="margin-top:18px; color:var(--text-muted); max-width:42ch; line-height:1.7;">Details available upon request.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:10px;">
+    <span>© Fridah Mbithe Taabu — Portfolio</span>
+   
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.addEventListener('click', ()=> links.classList.remove('open'));
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const navA = document.querySelectorAll('.nav-links a');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        navA.forEach(a=>a.classList.remove('active'));
+        const match = document.querySelector('.nav-links a[href="#'+e.target.id+'"]');
+        if(match) match.classList.add('active');
+      }
+    });
+  }, {rootMargin:"-45% 0px -50% 0px"});
+  sections.forEach(s=>obs.observe(s));
+</script>
+
+</body>
+</html>
