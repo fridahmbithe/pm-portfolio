@@ -174,30 +174,45 @@
   .section-paper .section-head .desc{color:var(--text-ink-muted);}
 
   /* ---------- ABOUT ---------- */
-  .about-grid{
-    display:grid; grid-template-columns:1.15fr 0.85fr; gap:64px; align-items:start;
-  }
-  @media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
-  .about-copy p{font-size:1.05rem; line-height:1.8; color:var(--text-ink-muted);}
-  .about-copy p + p{margin-top:18px;}
-  .route-card{
-    background:var(--ink); color:var(--text-light);
-    border-radius:var(--radius-md); padding:30px 28px;
-  }
-  .route-title{font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:22px;}
-  .route-rail{position:relative; padding-left:26px;}
-  .route-rail::before{
-    content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px;
-    background:linear-gradient(var(--gold), var(--teal));
-  }
-  .route-stop{position:relative; padding-bottom:22px;}
-  .route-stop:last-child{padding-bottom:0;}
-  .route-stop::before{
-    content:""; position:absolute; left:-26px; top:3px; width:9px; height:9px; border-radius:50%;
-    background:var(--gold); border:2px solid var(--ink);
-  }
-  .route-stop .city{font-weight:600; font-size:0.98rem;}
-  .route-stop .role{font-size:0.85rem; color:var(--text-muted); margin-top:2px;}
+/* ---------- ABOUT ---------- */
+.about-grid{
+  display:grid; grid-template-columns:3fr 1fr; gap:64px; align-items:start;
+}
+@media (max-width:860px){ .about-grid{grid-template-columns:1fr;} }
+.about-copy p{font-size:1.05rem; line-height:1.8; color:var(--text-ink-muted);}
+.about-copy p + p{margin-top:18px;}
+
+.route-card{
+  position:sticky; top:100px;
+  background:
+    radial-gradient(140% 160% at 100% -10%, color-mix(in srgb, var(--gold) 18%, transparent), transparent 60%),
+    radial-gradient(140% 160% at -10% 110%, color-mix(in srgb, var(--teal) 16%, transparent), transparent 60%),
+    var(--ink);
+  color:var(--text-light);
+  border-radius:var(--radius-md);
+  padding:30px 26px 28px;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 24px 48px -24px rgba(0,0,0,0.5);
+}
+.route-title{font-size:0.85rem; font-weight:600; color:var(--text-muted); margin-bottom:6px;}
+.route-sub{font-size:0.82rem; color:var(--text-muted); line-height:1.55; margin-bottom:22px; opacity:0.85;}
+.route-rail{position:relative; padding-left:26px;}
+.route-rail::before{
+  content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px;
+  background:linear-gradient(var(--gold), var(--teal));
+}
+.route-stop{position:relative; padding-bottom:22px;}
+.route-stop:last-child{padding-bottom:0;}
+.route-stop::before{
+  content:""; position:absolute; left:-26px; top:3px; width:9px; height:9px; border-radius:50%;
+  background:var(--gold); border:2px solid var(--ink);
+}
+.route-stop .city{font-weight:600; font-size:0.98rem;}
+.route-stop .role{font-size:0.85rem; color:var(--text-muted); margin-top:2px;}
+.route-foot{
+  margin-top:26px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08);
+  font-size:0.8rem; color:var(--text-muted); line-height:1.5;
+}
 
   /* ---------- WINS / EVIDENCE GRID ---------- */
   .wins-grid{
@@ -335,24 +350,27 @@
 </section>
 
 <!-- ABOUT -->
+<!-- ABOUT -->
 <section class="section-paper" id="about">
   <div class="wrap">
-    <div class="about-grid"> 
+    <div class="about-grid">
       <div class="about-copy">
         <div class="kicker"><span class="line"></span> About</div>
         <h2 style="margin-bottom:22px;">From intern to Associate Product Owner, in under two years.</h2>
         <p>I started as a Project Management Intern at Roamtech Solutions and now own delivery for Senti, a WhatsApp-based lending line, and co-own the roadmap for Paykit, Roamtech's payments product — running discovery, requirements, and launch across distributed engineering and business teams.</p>
         <p>My work sits where product delivery meets compliance and data: I've taken loan servicing and credit-scoring from fully manual to fully automated, translated CBK regulatory guidance into product requirements for sanctions screening and reporting, and made the harder call when the numbers demanded it — recommending against building a loan product after field research showed weak demand and elevated default risk.</p>
-        <p> I gravitate toward product work with real consequences attached — where a bad requirement doesn't just mean a delayed release, it means a customer gets wrongly flagged, a regulator asks questions, or a loan goes to someone who can't repay it. That's part of why I stayed close to compliance and credit risk rather than treating them as someone else's problem to hand off.</p>
+        <p>I gravitate toward product work with real consequences attached — where a bad requirement doesn't just mean a delayed release, it means a customer gets wrongly flagged, a regulator asks questions, or a loan goes to someone who can't repay it. That's part of why I stayed close to compliance and credit risk rather than treating them as someone else's problem to hand off.</p>
         <p>As a product owner, I use AI tools daily to move faster on documentation, requirements, and prototyping — and I'm comfortable picking up new tools and ambiguity fast.</p>
       </div>
       <div class="route-card">
         <div class="route-title">Sample Prototypes</div>
+        <div class="route-sub">Live, clickable prototypes from real product work.</div>
         <div class="route-rail">
           <div class="route-stop"><a class="city" href="https://v0-senti-loan-products.vercel.app/dashboard" target="_blank" rel="noopener">Senti Salary Advance</a></div>
           <div class="route-stop"><a class="city" href="https://bulkflow-coral.vercel.app/" target="_blank" rel="noopener">Bulk Upload Flow</a></div>
           <div class="route-stop"><a class="city" href="https://gaming-merchants-c2b-flow.vercel.app/" target="_blank" rel="noopener">Gaming C2B Flow</a></div>
         </div>
+        <div class="route-foot">Built to test real flows before engineering builds them.</div>
       </div>
     </div>
   </div>
